@@ -143,8 +143,6 @@ void Sampler::generateLobeF(Directions &dirs)
 
 	memcpy(tcoeffs, coeffsF, nFuncs * sizeof(LFLOAT));
 
-	BFGS bfgs;
-
 	for (int i = 0; i < nSamples; ++i)
 	{
 		BFGS::samples[i] = samples[i];
@@ -153,7 +151,7 @@ void Sampler::generateLobeF(Directions &dirs)
 
 	for (int lobeIdx = 0; lobeIdx < LOBE_NUM; ++lobeIdx)
 	{
-		memcpy(bfgs.tlm, tcoeffs, nFuncs * sizeof(LFLOAT));
+		memcpy(BFGS::tlm, tcoeffs, nFuncs * sizeof(LFLOAT));
 		lbfgsfloatval_t minFx = (lbfgsfloatval_t)INT_MAX;
 		//cout << "#######################lobe: " << lobeIdx << endl;
 		for (int dirIdx = 0; dirIdx < DIR_NUM; ++dirIdx)
@@ -161,11 +159,11 @@ void Sampler::generateLobeF(Directions &dirs)
 			//cout << "dir: " << dirIdx << endl;
 			DIR direction = dirs.directions[dirIdx];
 
-			bfgs.init();
+			BFGS::init();
 
-			bfgs.x[0] = direction.xyz.x;
-			bfgs.x[1] = direction.xyz.y;
-			bfgs.x[2] = direction.xyz.z;
+			BFGS::x[0] = direction.xyz.x;
+			BFGS::x[1] = direction.xyz.y;
+			BFGS::x[2] = direction.xyz.z;
 
 
 			unsigned index = 3;
@@ -183,28 +181,28 @@ void Sampler::generateLobeF(Directions &dirs)
 				denominator = (2.0 * l + 1) / (4 * M_PI);
 				for (int j = 0; j < 2 * l + 1; ++j)
 				{
-					bfgs.x[index + j] = numerator / denominator;
+					BFGS::x[index + j] = numerator / denominator;
 				}
 				index += 2 * l + 1;
 			}
 
 			lbfgsfloatval_t fx;
-			bfgs.bfgs(&fx);
+			BFGS::bfgs(&fx);
 
 			//cout << fx << "  " << minFx << endl;
 			if (fx < minFx)
 			{
-				LFLOAT x = bfgs.x[0], y = bfgs.x[1], z = bfgs.x[2];
+				LFLOAT x = BFGS::x[0], y = BFGS::x[1], z = BFGS::x[2];
 
 				LFLOAT D = sqrt(x * x + y * y + z * z);
-				bfgs.x[0] = x / D;
-				bfgs.x[1] = y / D;
-				bfgs.x[2] = z / D;
+				BFGS::x[0] = x / D;
+				BFGS::x[1] = y / D;
+				BFGS::x[2] = z / D;
 
 				minFx = fx;
 				for (unsigned i = 0; i < nFuncs + 3; ++i)
 				{
-					lobesF[lobeIdx][i] = bfgs.x[i];
+					lobesF[lobeIdx][i] = BFGS::x[i];
 				}
 			}
 		}

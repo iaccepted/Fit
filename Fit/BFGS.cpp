@@ -2,6 +2,9 @@
 
 LFLOAT *BFGS::tlm = new LFLOAT[BAND_NUM * BAND_NUM];
 SAMPLE *BFGS::samples = new SAMPLE[SQRT_SAMPLES_NUM * SQRT_SAMPLES_NUM];
+int BFGS::n = 0;
+lbfgsfloatval_t *BFGS::x = NULL;
+lbfgs_parameter_t BFGS::param;
 
 void BFGS::init()
 {
