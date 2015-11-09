@@ -1,0 +1,17 @@
+﻿Build started 2015/11/9 16:54:29.
+     1>Project "E:\iaccepted\Fit\Fit\Fit.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         D:\Program Files (x86)\vs2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\iaccepted\Fit\Debug\Fit.exe" /INCREMENTAL /NOLOGO /LIBPATH:".\3rdParty\assimp-3.1.1\lib" /LIBPATH:".\3rdParty\glew-1.13.0\lib\Release\Win32" /LIBPATH:".\3rdParty\glfw-3.1.1\lib" /LIBPATH:.\3rdParty\FreeImage3160Win32\FreeImage\Dist /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /LIBPATH:"D:\Program Files (x86)\opencv\build\x86\vc12\lib" assimp.lib glew32.lib glfw3.lib opengl32.lib FreeImage.lib opencv_calib3d2410.lib opencv_contrib2410.lib opencv_core2410.lib opencv_features2d2410.lib opencv_flann2410.lib opencv_gpu2410.lib opencv_highgui2410.lib opencv_imgproc2410.lib opencv_legacy2410.lib opencv_ml2410.lib opencv_nonfree2410.lib opencv_objdetect2410.lib opencv_ocl2410.lib opencv_photo2410.lib opencv_stitching2410.lib opencv_superres2410.lib opencv_ts2410.lib opencv_video2410.lib opencv_videostab2410.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\iaccepted\Fit\Debug\Fit.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\iaccepted\Fit\Debug\Fit.lib" /MACHINE:X86 Debug\BFGS.obj
+         Debug\Directions.obj
+         Debug\lbfgs.obj
+         Debug\main.obj
+         Debug\ProgramManager.obj
+         Debug\Renderer.obj
+         Debug\Sampler.obj
+         Debug\SHEval.obj
+         Fit.vcxproj -> E:\iaccepted\Fit\Debug\Fit.exe
+     1>Done Building Project "E:\iaccepted\Fit\Fit\Fit.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.24
