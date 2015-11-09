@@ -10,9 +10,9 @@ class BFGS
 {
 public:
 	BFGS(){}
-	void bfgs(lbfgsfloatval_t *fx);
+	static void bfgs(lbfgsfloatval_t *fx);
 
-	void init();
+	static void init();
 
 	static lbfgsfloatval_t evaluate(
 		void *instance,
@@ -22,10 +22,9 @@ public:
 		const lbfgsfloatval_t step
 		);
 
-	int n;
-	lbfgsfloatval_t *x;
-	lbfgs_parameter_t param;
-	//static std::vector<SAMPLE> samples;
+	static int n;
+	static lbfgsfloatval_t *x;
+	static lbfgs_parameter_t param;
 	static SAMPLE *samples;
 	static LFLOAT *tlm;
 };
